@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .section {
+            width: 100%;
+            min-height: 100vh; /* Paksa tinggi minimum 100% layar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+        .section:nth-child(3) { background: red; }
+        .section:nth-child(4) { background: blue; }
+        .section:nth-child(5) { background: purple; }
+
+        img{
+          height: 50rem;
+          width: auto;
+        }
+        .right{
+          width: 50vw;
+        }
+        .left{
+          width: 50vw;
+        }
+        /* Navigasi */
+        .nav {
+            position: fixed;
+            top: 2rem;
+            left: 10rem;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .nav button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0);
+            color: white;
+            border-radius: 5px;
+        }
+        .nav button:hover {
+            color: Black;
+        }
+        
+        .btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+.judul {
+  color: white;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+            transform: translateX(-50%);
+}
+
+
+        /* Mode Mobile */
+        @media (max-width: 768px) {
+            .nav{
+              display: none;
+            }
+            .section {
+                min-height: auto;
+                height: 33.33vh; /* Paksa setiap bagian memiliki tinggi penuh */
+                padding: 50px 20px;
+            }
+            img{
+              height: 10rem;
+              width: auto;
+            }
+            h1{
+              font-size: 0.7rem;
+            }
+            .btn{
+              padding: 5px 10px;
+              font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <button onclick="scrollToSection(0)">Home</button>
+        <button onclick="scrollToSection(1)">About</button>
+        <button onclick="scrollToSection(2)">Contact</button>
+    </div>
+            <h1 class="judul">Scanner Mantap</h1>
+
+    <div class="section">
+      <div class="right">
+        <div class="title">
+          <h1>Tingkatkan efisiensi bisnis Anda dengan scanner barcode cepat dan akurat!</h1>
+        </div>
+                <button class="btn" onclick="buy()">Beli</button>
+      </div>
+      <div class="left">
+        <img src="Src/pic 1.png" alt="" />
+      </div>
+    </div>
+    
+        <div class="section">
+      <div class="right">
+        <img src="Src/pic 2.png" alt="" />
+      </div>
+
+      <div class="left">
+                <div class="title">
+<h1>Pindai, proses, dan kelola data dengan mudah – solusi barcode terbaik untuk Anda!</h1>
+        </div>
+                <button class="btn" onclick="buy()">Beli</button>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="right">
+        <div class="title">
+          <h1>Hemat waktu dan minimalkan kesalahan dengan teknologi pemindaian canggih!</h1>
+        </div>
+                <button class="btn" onclick="buy()">Beli</button>
+      </div>
+      <div class="left">
+        <img src="Src/pic 3.png" alt="" />
+      </div>
+    </div>
+    
+    <script>
+        function scrollToSection(index) {
+            const sections = document.querySelectorAll('.section');
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
